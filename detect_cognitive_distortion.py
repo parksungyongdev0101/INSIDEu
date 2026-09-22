@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 # API key
-client = OpenAI(api_key="***REMOVED***")
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 # 인지왜곡 목록 (index 0~9)
 distortion_list = {

@@ -5,6 +5,7 @@ from reflection_infer import get_reflection_reply
 from strategy_infer import get_strategy_reply
 from token_counter import get_token_allocation
 from detect_cognitive_distortion import detect_cognitive_distortion
+import os
 import openai
 
 user_message = "내 진로가 이게 맞는걸까? 나는 인공지능 전공이고 시대가 너무 격변하고 있어서 불안해. 이 진로로 대학원도 가고 싶은데, 내가 가는길이 맞나 싶다. 이 고민때문에 요즘 근심걱정이 많아.."
@@ -41,7 +42,7 @@ gpt_prompt = f"""
 """
 
 # 3. OpenAI GPT API 호출 (openai>=1.0.0 방식)
-client = openai.OpenAI(api_key="***REMOVED***")  # 환경변수나 안전한 방식으로 관리 권장
+client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 response = client.chat.completions.create(
     model="gpt-4",  # 또는 "gpt-3.5-turbo"
